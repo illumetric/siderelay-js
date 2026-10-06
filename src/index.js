@@ -1,2 +1,2 @@
-import sdk from './index.cjs';
+import sdk from "./index.cjs";
 export const { SideRelay, hashIdentity, normalizeEvent } = sdk;

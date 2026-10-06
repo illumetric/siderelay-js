@@ -4,7 +4,7 @@ Send confirmed purchases and leads from your Node.js backend to SideRelay.
 Requires Node.js 22+. No runtime dependencies.
 
 ```sh
-npm install github:illumetric/siderelay-js#v0.1.0
+npm install github:illumetric/siderelay-js#v0.1.1
 ```
 
 ```js
@@ -65,3 +65,8 @@ Versions are independent of the SideRelay platform. An explicit GitHub release
 workflow publishes a selected version using the repository's npm credentials;
 ordinary commits never publish. The npm package name is `@siderelay/node`. npm registry publication requires
 organization publisher credentials; until then the tagged GitHub installation above works.
+
+Optional `permissions` contains separate `collection`, `retention`, and `delivery`
+choices (`granted`, `denied`, `unknown`). These are vetoes, never substitutes for
+analytics or advertising consent. Map them to the website's reviewed policy;
+missing choices never become consent.

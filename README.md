@@ -4,7 +4,7 @@ Send confirmed purchases and leads from your Node.js backend to SideRelay.
 Requires Node.js 22+. No runtime dependencies.
 
 ```sh
-npm install github:illumetric/siderelay-js#v0.1.1
+npm install https://codeload.github.com/illumetric/siderelay-js/tar.gz/refs/tags/v0.1.1
 ```
 
 ```js

@@ -1,0 +1,27 @@
+name: Publish SDK
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version matching package.json
+        required: true
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - name: Check version
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: node -e "if(require('./package.json').version !== process.env.RELEASE_VERSION) process.exit(1)"
+      - run: npm test
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
